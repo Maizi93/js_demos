@@ -1,0 +1,63 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		<title>缓冲运动</title>
+		<style type="text/css">
+		  *{
+		  	margin: 0;
+		  	padding: 0;
+		  }
+
+		  #hide{
+		  	width:200px;
+		  	height: 200px;
+		  	background-color: blue;
+		  	position: relative;
+		  	left: -200px;
+		  	top: 0px;
+		  }
+
+		  #hide span{
+		  	width: 20px;
+		  	height: 40px;
+		  	background-color: red;
+		  	position: absolute;
+		  	top: 75px;
+		  	left: 200px;
+		  	color: #fff;
+		  }
+		</style>
+
+		<script type="text/javascript">
+		  window.onload=function(){
+		  	var oDiv=document.getElementById('hide');
+		  	oDiv.onmouseover=function(){
+		  		startMove(0);
+		  	}
+		  	oDiv.onmouseout=function(){
+		  		startMove(-200);
+		  	}
+		  }
+          var timer=null;
+		  function startMove(iTarget){
+		  	var oDiv=document.getElementById('hide');
+		  	clearInterval(timer);
+		  	timer=setInterval(function(){
+                var speed=(iTarget-oDiv.offsetLeft)/20;         //将速度设置如下：离目标越近速度越小
+                speed=speed>0?Math.ceil(speed):Math.floor(speed);   //如果speed大于0，则向上取整；如果speed小于0，则向下取整。
+		  		if(oDiv.offsetLeft==iTarget){
+		  			clearInterval(timer);
+		  		}else{
+		  		    oDiv.style.left=oDiv.offsetLeft+speed+'px';
+		  	    }
+		  	},30);
+		  }
+		</script>
+	</head>
+
+	<body>
+		<div id='hide'>
+		    <span id='share'>分享</span>
+		</div>
+	</body>
+</html>

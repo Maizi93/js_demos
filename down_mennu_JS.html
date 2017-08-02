@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		<title>下拉菜单</title>
+        <style type="text/css">
+            *{
+                margin: 0px;
+                padding: 0px;
+            }
+            ul,li{
+                list-style: none;
+                margin: 0px;
+                padding: 0px;
+            }
+            #wrap{
+                width: 200px;
+                margin: 100px auto;
+                /*position: relative;*/
+            }
+            #show_box{
+                width: 150px;
+                height: 24px;
+                line-height: 24px;
+                border: 1px gray solid;
+                display: block;
+                text-align: center;
+                cursor: pointer;
+            }
+            #wrap ul{
+                width: 152px;
+                display: none;
+            }
+            #wrap ul li{
+                height: 24px;
+                line-height: 24px;
+                border: 1px gray solid;
+                text-align: center;
+                cursor: pointer;
+                margin-top: -1px;
+            }
+        </style>
+	</head>
+	<body>
+	    <div id="wrap">
+         <div id="show_box">杭州</div>
+         <ul>
+             <li>杭州</li>
+             <li>上海</li>
+             <li>深圳</li>
+             <li>北京</li>
+         </ul>   
+        </div>
+
+        <script type="text/javascript">
+          window.onload=function(){
+
+            //获取元素
+            var oDiv = document.getElementById('wrap');
+            var oCont = document.getElementById('show_box');
+            var oMenu = oDiv.getElementsByTagName('ul')[0];
+            var oItem = oDiv.getElementsByTagName('li');
+
+
+            //给显示框添加点击事件
+            oCont.onclick = function(event){
+              event = event || window.event;
+              //阻止事件冒泡
+              if(event.stopPropagation){
+                event.stopPropagation();
+              }else{
+                event.cancleBubble = true;
+              }
+              //点击显示框，让ul列表显示
+              oMenu.style.display = 'block';
+            };
+
+
+            //给每个选项添加点击事件
+            for (var i = 0; i < oItem.length; i++) {
+                oItem[i].onclick = function(event){
+                  event = event || window.event;
+                  //阻止事件冒泡
+                  if(event.stopPropagation){
+                     event.stopPropagation();
+                  }else{
+                     event.cancleBubble = true;
+                  }
+                  //点击选项，隐藏ul列表
+                  oMenu.style.display = 'none';
+                  //将选中的选项内容显示在显示框中
+                  oCont.innerHTML = this.innerHTML;
+                };
+            };
+
+            //给页面空白处添加点击事件
+            document.onclick = function(){
+                //点击页面空白处，隐藏ul列表
+                oMenu.style.display = 'none';
+            }
+          };
+        </script>
+	</body>
+</html>

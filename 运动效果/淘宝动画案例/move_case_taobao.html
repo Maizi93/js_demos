@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    	<title>淘宝运动案例</title>
+    	<style type="text/css">
+    	    *{
+    	    	padding: 0;
+    	    	margin: 0;
+    	    	font-size: 12px;   	    
+    	    }
+    	    #move{
+    	    	width: 300px;
+    	    	height: 200px;
+    	    	background-color: #fff;
+    	    	border:1px solid #ccc;
+    	    	border-radius: 3px;
+    	    	margin: 0 auto;
+    	    	top:50px;
+    	    	position: relative;
+    	    }
+    	    #move a{
+    	    	display: inline-block;
+    	    	width: 50px;
+    	    	height: 20px;
+    	    	background-color: #fff;
+    	    	border: 1px solid #ccc;
+    	    	border-radius: 5px;
+    	    	text-decoration: none;
+    	    	text-align: center;
+    	    	color: orange;
+    	    	padding-top: 40px;
+    	    	margin:19px 24px;
+    	    	float: left;
+    	    	position: relative;
+    	    	overflow: hidden;
+    	    }
+    	    #move a img{
+    	    	width: 20px;
+    	    	height: 20px;
+    	    }
+    	    #move a i{
+    	    	display: inline-block;
+    	    	top: 10px;
+    	    	left:0;
+    	    	filter:alpha(opacity:100);
+    	    	opacity: 1;
+    	    	width: 100%;
+    	    	position: absolute;
+    	    }
+    	    #move p{
+    	    	margin-top:5px;
+    	    }
+    	</style>
+    	<script src="move.js"></script>
+    	<script type="text/javascript">
+    	    window.onload=function(){
+    	    	var oMove=document.getElementById('move');
+    	    	var aList=oMove.getElementsByTagName('a');
+    	    	for(var i=0;i<aList.length;i++){
+    	    		aList[i].onmouseenter=function(){
+    	    			var i_this=this.getElementsByTagName('i')[0];
+    	    			startMove(i_this,{top:-25,opacity:0},function(){
+    	    				i_this.style.top=15+'px';
+    	    				startMove(i_this,{top:10,opacity:100});
+    	    			});
+    	    	    }
+    	        }
+    	    }
+    	</script>
+    </head>
+    <body>
+    	<div id="move">
+    		<a href="#"><i><img src="images\book.png"></i><p>书籍</p></a>
+    		<a href="#"><i><img src="images\camera.png"></i><p>相机</p></a>
+    		<a href="#"><i><img src="images\computer.png"></i><p>电脑</p></a>
+    		<a href="#"><i><img src="images\shopping.png"></i><p>购物车</p></a>
+    		<a href="#"><i><img src="images\shirt.png"></i><p>衣服</p></a>
+    		<a href="#"><i><img src="images\watch.png"></i><p>手表</p></a>
+    	</div>
+    </body>
+</html>

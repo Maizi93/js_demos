@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>暴力圆角矩形</title>
+        <style type="text/css">
+            .wrap{
+            	overflow: hidden;
+            	margin-top: 50px;
+            }
+            .top2,.bottom2,.top3,.bottom3,.top4,.bottom4,.top5,.bottom5{
+            	height: 1px;
+            	background-color: lightgray;
+            	overflow: hidden;
+            }
+            .top1,.bottom1{
+            	margin: 0 5px;
+            	border-top: solid 1px black;
+            }
+            .top2,.bottom2{
+            	margin: 0 3px;
+            	border-left: solid 1px black;
+            	border-right: solid 1px black;
+            }
+            .top3,.bottom3{
+            	margin: 0 2px;
+            	border-left: solid 1px black;
+            	border-right: solid 1px black;
+            }
+            .top4,.bottom4{
+            	margin: 0 1px;
+            	border-left: solid 1px black;
+            	border-right: solid 1px black;
+            }
+            .top5,.bottom5{
+            	margin: 0 1px;
+            	border-left: solid 1px black;
+            	border-right: solid 1px black;
+            }
+            .main{
+            	height: 100%;
+            	border-left: solid 1px black;
+            	border-right: solid 1px black;
+            	background-color: lightgray;
+            }
+        </style>
+    </head>
+    <body>
+  	    <div class="wrap">
+  	    	<div class="top1"></div>
+  	    	<div class="top2"></div>
+  	    	<div class="top3"></div>
+  	    	<div class="top4"></div>
+  	    	<div class="top5"></div>
+  	    	<div class="main">
+  	    		有的圆角矩形是复杂图案，无法直接用border-radius，请在不使用border-radius的情况下实现一个可复用的高度和宽度都自适应的圆角矩形。
+  	    	</div>
+  	    	<div class="bottom5"></div>
+  	    	<div class="bottom4"></div>
+  	    	<div class="bottom3"></div>
+  	    	<div class="bottom2"></div>
+  	    	<div class="bottom1"></div>
+  	    </div>
+    </body>
+</html>

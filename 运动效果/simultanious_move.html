@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+        <title>同时运动(完美运动框架)</title>
+          <style type="text/css">
+              *{
+               margin: 0;
+               padding: 0;
+             }
+             ul,li{
+              list-style: none;
+             }
+             ul li{
+              width: 200px;
+              height: 100px;
+              background-color: yellow;
+              filter:alpha(opacity:30);
+              opacity: 0.3;
+             }
+          </style>
+
+          <script src="move.js"></script>
+          <script type="text/javascript">
+              window.onload=function(){
+                var oLi=document.getElementById('li1');
+                oLi.onmouseover=function(){
+                  startMove(oLi,{width:201,height:200,opacity:100});
+                }
+                oLi.onmouseout=function(){
+                  startMove(oLi,{width:200,height:100,opacity:30});
+                }
+              }
+          </script>
+    </head>
+    <body>
+      <ul>
+        <li id="li1"></li>
+      </ul>
+    </body>
+</html>
